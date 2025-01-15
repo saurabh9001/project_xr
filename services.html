@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virtual Duniya offers cutting-edge AR/VR services including custom development, training solutions, and immersive experiences.">
+    <meta name="keywords" content="AR, VR, Virtual Reality, Augmented Reality, AR/VR Services, Virtual Duniya">
+    <title>Services - Virtual Duniya | AR/VR Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Realistic eye blinking simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImg = document.querySelector('.logo-img');
+            const logos = ['images/vd-logo.svg?v=1', 'images/vd-logo1.svg?v=1'];
+            let currentLogoIndex = 0;
+            
+            function getRandomInterval(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            function blinkLogo() {
+                // Alternate logos
+                currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+                logoImg.src = logos[currentLogoIndex];
+                
+                // Set next blink with some randomness to feel more natural
+                const nextBlinkTime = getRandomInterval(800, 3000); // Between 0.8 and 3 seconds
+                setTimeout(blinkLogo, nextBlinkTime);
+            }
+            
+            // Start the blinking animation
+            blinkLogo();
+        });
+    </script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1>Transformative <span class="gradient-text">AR/VR Services</span></h1>
+                    <p class="hero-subtitle">Empowering Businesses with Cutting-edge Immersive Technologies</p>
+                    <div class="hero-cta">
+                        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+                        <a href="#services-list" class="btn btn-outline">View Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <a href="#services-list" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="services-list" class="features-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Our Core Services</h2>
+                    <p>Comprehensive AR/VR Solutions for Every Need</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h3>VR Development</h3>
+                        <ul class="service-features">
+                            <li>Custom VR Applications</li>
+                            <li>Interactive 3D Environments</li>
+                            <li>VR Training Simulations</li>
+                            <li>Virtual Showrooms</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-glasses"></i>
+                        </div>
+                        <h3>AR Solutions</h3>
+                        <ul class="service-features">
+                            <li>Mobile AR Applications</li>
+                            <li>Product Visualization</li>
+                            <li>AR Marketing Campaigns</li>
+                            <li>Interactive Print Materials</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Mixed Reality</h3>
+                        <ul class="service-features">
+                            <li>MR Enterprise Solutions</li>
+                            <li>Holographic Interfaces</li>
+                            <li>Spatial Computing</li>
+                            <li>Interactive Experiences</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section bg-gradient">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Our Development Process</h2>
+                    <p>A Systematic Approach to Delivering Excellence</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>Discovery</h3>
+                        <p>Understanding your needs and objectives through detailed consultation</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>Planning</h3>
+                        <p>Creating comprehensive project roadmap and technical specifications</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>Development</h3>
+                        <p>Building your solution with agile methodology and regular updates</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h3>Testing</h3>
+                        <p>Rigorous quality assurance and user experience testing</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">05</div>
+                        <h3>Deployment</h3>
+                        <p>Smooth implementation and comprehensive training</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content text-center">
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Let's discuss how our AR/VR solutions can help you achieve your goals</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        <a href="solutions.html" class="btn btn-outline">View Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="footer-logo">
+                    <p>Transforming reality through innovative AR/VR solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/virtualduniya/?viewAsMember=true" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i> Virtual Duniya LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Virtual Duniya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="background">
+        <div id="particles"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Virtual Duniya's innovative AR/VR solutions for various industries including education, healthcare, real estate, and manufacturing.">
+    <meta name="keywords" content="AR Solutions, VR Solutions, Industry Solutions, Virtual Duniya, AR/VR Technology">
+    <title>Solutions - Virtual Duniya | Industry-specific AR/VR Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Realistic eye blinking simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImg = document.querySelector('.logo-img');
+            const logos = ['images/vd-logo.svg?v=1', 'images/vd-logo1.svg?v=1'];
+            let currentLogoIndex = 0;
+            
+            function getRandomInterval(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            function blinkLogo() {
+                // Alternate logos
+                currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+                logoImg.src = logos[currentLogoIndex];
+                
+                // Set next blink with some randomness to feel more natural
+                const nextBlinkTime = getRandomInterval(800, 3000); // Between 0.8 and 3 seconds
+                setTimeout(blinkLogo, nextBlinkTime);
+            }
+            
+            // Start the blinking animation
+            blinkLogo();
+        });
+    </script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="solutions.html" class="active">Solutions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1>Industry-Specific <span class="gradient-text">AR/VR Solutions</span></h1>
+                    <p class="hero-subtitle">Tailored Immersive Experiences for Your Industry's Unique Challenges</p>
+                    <div class="hero-cta">
+                        <a href="contact.html" class="btn btn-primary">Discuss Your Needs</a>
+                        <a href="#solutions-grid" class="btn btn-outline">Explore Solutions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <a href="#solutions-grid" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="solutions-grid" class="features-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Industry Solutions</h2>
+                    <p>Transforming Businesses Across Sectors</p>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education</h3>
+                        <ul class="solution-features">
+                            <li>Interactive Learning Environments</li>
+                            <li>Virtual Laboratories</li>
+                            <li>Historical Reconstructions</li>
+                            <li>Distance Learning Tools</li>
+                        </ul>
+                        <a href="contact.html" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <ul class="solution-features">
+                            <li>Surgical Training Simulations</li>
+                            <li>Medical Visualization</li>
+                            <li>Patient Education</li>
+                            <li>Rehabilitation Programs</li>
+                        </ul>
+                        <a href="contact.html" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Manufacturing</h3>
+                        <ul class="solution-features">
+                            <li>Assembly Line Training</li>
+                            <li>Maintenance Assistance</li>
+                            <li>Quality Control</li>
+                            <li>Safety Training</li>
+                        </ul>
+                        <a href="contact.html" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-studies bg-gradient">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Success Stories</h2>
+                    <p>Real Results from Real Clients</p>
+                </div>
+                <div class="case-studies-grid">
+                    <div class="case-study-card">
+                        <div class="case-study-content">
+                            <h3>Educational Institution</h3>
+                            <p class="case-study-description">Implemented virtual laboratories for remote learning, increasing student engagement by 85%</p>
+                            <ul class="case-study-results">
+                                <li>85% Increased Engagement</li>
+                                <li>50% Cost Reduction</li>
+                                <li>24/7 Accessibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-study-card">
+                        <div class="case-study-content">
+                            <h3>Manufacturing Plant</h3>
+                            <p class="case-study-description">Reduced training time by 60% with VR-based assembly line training</p>
+                            <ul class="case-study-results">
+                                <li>60% Faster Training</li>
+                                <li>40% Error Reduction</li>
+                                <li>ROI in 6 Months</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-study-card">
+                        <div class="case-study-content">
+                            <h3>Healthcare Provider</h3>
+                            <p class="case-study-description">Enhanced surgical training with VR simulations, improving procedure accuracy by 45%</p>
+                            <ul class="case-study-results">
+                                <li>45% Better Accuracy</li>
+                                <li>30% Time Savings</li>
+                                <li>Zero Risk Training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content text-center">
+                    <h2>Ready to Transform Your Industry?</h2>
+                    <p>Let's create a solution that addresses your specific needs</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Start Your Journey</a>
+                        <a href="services.html" class="btn btn-outline">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="footer-logo">
+                    <p>Transforming reality through innovative AR/VR solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/virtualduniya/?viewAsMember=true" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i> Virtual Duniya LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Virtual Duniya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="background">
+        <div id="particles"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

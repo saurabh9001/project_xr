@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Virtual Duniya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Realistic eye blinking simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImg = document.querySelector('.logo-img');
+            const logos = ['images/vd-logo.svg?v=1', 'images/vd-logo1.svg?v=1'];
+            let currentLogoIndex = 0;
+            
+            function getRandomInterval(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            function blinkLogo() {
+                // Alternate logos
+                currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+                logoImg.src = logos[currentLogoIndex];
+                
+                // Set next blink with some randomness to feel more natural
+                const nextBlinkTime = getRandomInterval(800, 3000); // Between 0.8 and 3 seconds
+                setTimeout(blinkLogo, nextBlinkTime);
+            }
+            
+            // Start the blinking animation
+            blinkLogo();
+        });
+    </script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p class="hero-subtitle">Let's Create Something Amazing Together</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-container">
+                        <div class="form-card">
+                            <h2>Send us a Message</h2>
+                            <form class="contact-form" id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="business">Business Inquiry</option>
+                                        <option value="support">Technical Support</option>
+                                        <option value="partnership">Partnership</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <h3>Connect With Us</h3>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/company/virtualduniya/?viewAsMember=true" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>Virtual Duniya LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="footer-logo">
+                    <p>Transforming reality through innovative AR/VR solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/virtualduniya/?viewAsMember=true" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i> Virtual Duniya LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Virtual Duniya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="background">
+        <div id="particles"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

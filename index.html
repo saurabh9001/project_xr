@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Virtual Duniya - Leading the Future of Immersive Experiences with Innovative AR/VR Technology">
+    <meta name="keywords" content="Virtual Reality, Augmented Reality, AR/VR Solutions, Virtual Duniya">
+    <title>Virtual Duniya | AR/VR Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="images/vd-icon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Realistic eye blinking simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImg = document.querySelector('.logo-img');
+            const logos = ['images/vd-logo.svg?v=1', 'images/vd-logo1.svg?v=1'];
+            let currentLogoIndex = 0;
+            
+            function getRandomInterval(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            function blinkLogo() {
+                // Alternate logos
+                currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+                logoImg.src = logos[currentLogoIndex];
+                
+                // Set next blink with some randomness to feel more natural
+                const nextBlinkTime = getRandomInterval(800, 3000); // Between 0.8 and 3 seconds
+                setTimeout(blinkLogo, nextBlinkTime);
+            }
+            
+            // Start the blinking animation
+            blinkLogo();
+        });
+    </script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1>Transform Reality with <span class="gradient-text">AR/VR Innovation</span> at Virtual Duniya</h1>
+                    <p class="hero-subtitle">Leading the Future of Immersive Experiences with Innovative Technology and Creativity</p>
+                    <div class="hero-cta">
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        <a href="#our-mission" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <a href="#features" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Virtual Duniya</h2>
+                    <p>Transforming ideas into immersive digital experiences</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Innovative Technology</h3>
+                        <p>Leveraging the latest AR/VR advancements</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Expert Team</h3>
+                        <p>Skilled professionals dedicated to your success</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored experiences for your unique needs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive AR/VR solutions for your business</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h3>VR Development</h3>
+                        <p>Create immersive virtual reality experiences</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-glasses"></i>
+                        </div>
+                        <h3>AR Solutions</h3>
+                        <p>Enhance real-world interactions with AR</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Integration</h3>
+                        <p>Smart features powered by artificial intelligence</p>
+                        <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">98%</div>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Ideas?</h2>
+                    <p>Let's create something extraordinary together</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                        <a href="about.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="images/vd-logo.svg?v=1" alt="Virtual Duniya" class="footer-logo">
+                    <p>Transforming reality through innovative AR/VR solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="solutions.html">Solutions</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/company/virtualduniya/?viewAsMember=true" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i> Virtual Duniya LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Virtual Duniya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="background">
+        <div id="particles"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
