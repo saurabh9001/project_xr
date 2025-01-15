@@ -105,9 +105,8 @@ h1, h2, h3, h4, h5, h6 {
 .logo-img {
     max-height: 50px;
     width: auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
     will-change: transform;
-    transform-style: preserve-3d;
 }
 
 .logo-img:hover {
