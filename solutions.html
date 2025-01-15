@@ -280,13 +280,16 @@
                     }
                 },
                 color: {
-                    value: ['#ffffff', '#f0f0f0', '#e0e0e0']
+                    value: ['#ffffff', '#f0f0f0', '#e0e0e0', '#d0d0d0']
                 },
                 shape: {
                     type: 'star',
                     stroke: {
                         width: 0,
                         color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
                     }
                 },
                 opacity: {
@@ -295,7 +298,7 @@
                     anim: {
                         enable: true,
                         speed: 1,
-                        opacity_min: 0.1,
+                        opacity_min: 0.3,
                         sync: false
                     }
                 },
@@ -325,7 +328,7 @@
                     out_mode: 'out',
                     bounce: false,
                     attract: {
-                        enable: false,
+                        enable: true,
                         rotateX: 600,
                         rotateY: 1200
                     }
@@ -336,7 +339,7 @@
                 events: {
                     onhover: {
                         enable: true,
-                        mode: 'repulse'
+                        mode: ['repulse', 'grab']
                     },
                     onclick: {
                         enable: true,
@@ -345,6 +348,12 @@
                     resize: true
                 },
                 modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
                     repulse: {
                         distance: 100,
                         duration: 0.4
