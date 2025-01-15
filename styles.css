@@ -106,6 +106,8 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 50px;
     width: auto;
     transition: transform 0.3s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
 }
 
 .logo-img:hover {
@@ -579,6 +581,17 @@ footer {
     background-size: 50px 50px;
     z-index: -1;
     opacity: 0.5;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(0, 255, 255, 0.1), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(255, 0, 255, 0.1), transparent 70%);
+    z-index: 2;
 }
 
 /* Page Title Styles */

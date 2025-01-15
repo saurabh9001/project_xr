@@ -10,28 +10,80 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
-        // Realistic eye blinking simulation
+        // Advanced logo interaction with unique mouse tracking
         document.addEventListener('DOMContentLoaded', function() {
             const logoImg = document.querySelector('.logo-img');
             const logos = ['images/vd-logo.svg?v=1', 'images/vd-logo1.svg?v=1'];
             let currentLogoIndex = 0;
+            let isBlinking = false;
             
-            function getRandomInterval(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            
-            function blinkLogo() {
-                // Alternate logos
-                currentLogoIndex = (currentLogoIndex + 1) % logos.length;
-                logoImg.src = logos[currentLogoIndex];
+            // Realistic eye movement and blinking
+            function createEyeAnimation() {
+                // Natural blinking intervals
+                function getRandomBlinkInterval() {
+                    return Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000; // 2-5 seconds
+                }
                 
-                // Set next blink with some randomness to feel more natural
-                const nextBlinkTime = getRandomInterval(800, 3000); // Between 0.8 and 3 seconds
-                setTimeout(blinkLogo, nextBlinkTime);
+                // Advanced mouse tracking with perspective and depth illusion
+                function trackMouseMovement(e) {
+                    if (isBlinking) return;
+                    
+                    const logoRect = logoImg.getBoundingClientRect();
+                    const centerX = logoRect.left + logoRect.width / 2;
+                    const centerY = logoRect.top + logoRect.height / 2;
+                    
+                    // Calculate relative mouse position
+                    const mouseX = e.clientX - centerX;
+                    const mouseY = e.clientY - centerY;
+                    
+                    // Create a more dynamic, multi-dimensional effect
+                    const rotateX = -mouseY / 20;  // Vertical tilt
+                    const rotateY = mouseX / 20;   // Horizontal tilt
+                    const perspective = 500;       // Depth perception
+                    const scale = 1 + Math.abs(mouseX + mouseY) / 2000;
+                    
+                    // Apply complex transformation
+                    logoImg.style.transform = `
+                        perspective(${perspective}px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale(${scale})
+                    `;
+                }
+                
+                // Blinking mechanism
+                function blink() {
+                    if (isBlinking) return;
+                    
+                    isBlinking = true;
+                    currentLogoIndex = (currentLogoIndex + 1) % logos.length;
+                    logoImg.src = logos[currentLogoIndex];
+                    
+                    // Quick blink duration
+                    setTimeout(() => {
+                        logoImg.src = logos[0]; // Return to original logo
+                        isBlinking = false;
+                    }, 100); // Very quick blink
+                    
+                    // Schedule next blink
+                    setTimeout(blink, getRandomBlinkInterval());
+                }
+                
+                // Reset logo when mouse leaves
+                function resetLogoPosition() {
+                    logoImg.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale(1)';
+                }
+                
+                // Start blinking sequence
+                blink();
+                
+                // Add event listeners
+                document.addEventListener('mousemove', trackMouseMovement);
+                logoImg.addEventListener('mouseleave', resetLogoPosition);
             }
             
-            // Start the blinking animation
-            blinkLogo();
+            // Initialize eye animation
+            createEyeAnimation();
         });
     </script>
 </head>
