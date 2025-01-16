@@ -31,6 +31,15 @@
                 "Updated .htaccess to handle home page routing",
                 "Updated all internal links to use 'home' instead of 'index'"
             ]
+        },
+        {
+            "description": "Fixed remaining index links in home.html",
+            "files_modified": [
+                "home.html"
+            ],
+            "changes": [
+                "Updated logo and navigation links to use 'home' instead of 'index'"
+            ]
         }
     ]
 }
