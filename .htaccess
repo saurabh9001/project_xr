@@ -1,4 +1,13 @@
 RewriteEngine On
+
+# Redirect root to home
+RewriteRule ^$  home [L]
+
+# Rewrite index.html to home
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP
+RewriteRule ^index\.html$  home [R=301,L]
+
+# Handle other .html files
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [L]
