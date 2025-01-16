@@ -1,0 +1,34 @@
+{
+    "repository": {
+        "name": "project_xr",
+        "owner": "saurabh9001",
+        "url": "https://github.com/saurabh9001/project_xr.git"
+    },
+    "current_branch": "main",
+    "last_commit": {
+        "message": ".html extension removed from link",
+        "timestamp": "2025-01-17T00:20:38+05:30",
+        "files_changed": 7
+    },
+    "workflow_config": {
+        "default_commit_prefix": "Update:",
+        "preferred_push_branch": "main",
+        "auto_add_all_files": true
+    },
+    "recent_changes": [
+        {
+            "description": "Removed .html extensions from internal links",
+            "files_modified": [
+                "index.html",
+                "about.html",
+                "contact.html",
+                "services.html",
+                "solutions.html"
+            ],
+            "additional_files": [
+                ".htaccess",
+                ".gitignore"
+            ]
+        }
+    ]
+}
