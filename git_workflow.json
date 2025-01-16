@@ -17,28 +17,14 @@
     },
     "recent_changes": [
         {
-            "description": "Updated home page URL structure",
+            "description": "Enhanced root URL and home page routing",
             "files_modified": [
-                "home.html",
-                "about.html",
-                "contact.html",
-                "services.html",
-                "solutions.html",
                 ".htaccess"
             ],
             "changes": [
-                "Renamed index.html to home.html",
-                "Updated .htaccess to handle home page routing",
-                "Updated all internal links to use 'home' instead of 'index'"
-            ]
-        },
-        {
-            "description": "Fixed remaining index links in home.html",
-            "files_modified": [
-                "home.html"
-            ],
-            "changes": [
-                "Updated logo and navigation links to use 'home' instead of 'index'"
+                "Added explicit handling for root URL",
+                "Added DirectoryIndex directive",
+                "Improved routing rules for home page"
             ]
         }
     ]
