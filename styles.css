@@ -1667,3 +1667,21 @@ footer {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* Contact Email Styles */
+.footer-contact .contact-email {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    gap: 0.5rem;
+}
+
+.footer-contact .contact-email:hover {
+    color: var(--primary);
+}
+
+.footer-contact .contact-email i {
+    font-size: 1.2rem;
+}
