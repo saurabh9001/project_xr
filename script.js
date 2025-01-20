@@ -10,70 +10,70 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
             color: {
-                value: '#2563eb'  // Primary color
+                value: "#ffffff" // Bright white
             },
             shape: {
-                type: 'circle',
+                type: "circle",
                 stroke: {
                     width: 0,
-                    color: '#000000'
+                    color: "#ffffff"
                 },
                 polygon: {
                     nb_sides: 5
                 }
             },
             opacity: {
-                value: 0.3,
-                random: false,
+                value: 0.7,
+                random: true,
                 anim: {
-                    enable: false,
+                    enable: true,
                     speed: 1,
                     opacity_min: 0.1,
                     sync: false
                 }
             },
             size: {
-                value: 3,
+                value: 5, // Larger particles
                 random: true,
                 anim: {
-                    enable: false,
-                    speed: 40,
-                    size_min: 0.1,
+                    enable: true,
+                    speed: 2,
+                    size_min: 1,
                     sync: false
                 }
             },
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: '#7c3aed',  // Secondary color
-                opacity: 0.2,
+                color: "#ffffff", // White connecting lines
+                opacity: 0.4,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 3,
-                direction: 'none',
-                random: false,
+                speed: 2,
+                direction: "none",
+                random: true,
                 straight: false,
-                out_mode: 'out',
+                out_mode: "out",
                 bounce: false,
                 attract: {
-                    enable: false,
+                    enable: true,
                     rotateX: 600,
                     rotateY: 1200
                 }
             }
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: "canvas",
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'repulse'
+                    mode: "repulse"
                 },
                 onclick: {
                     enable: true,
-                    mode: 'push'
+                    mode: "push"
                 },
                 resize: true
             },
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     speed: 3
                 },
                 repulse: {
-                    distance: 200,
+                    distance: 100,
                     duration: 0.4
                 },
                 push: {
@@ -334,47 +334,58 @@ function initInteractiveBackground() {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.size = Math.random() * 2 + 0.5;
+            this.size = Math.random() * 6 + 2; // Significantly larger particles
             this.baseX = this.x;
             this.baseY = this.y;
-            this.density = (Math.random() * 20) + 5;
+            this.density = (Math.random() * 40) + 15; // Increased density
             this.velocityX = 0;
             this.velocityY = 0;
-            this.friction = 0.95; // Add friction for smoother movement
-            this.springFactor = 0.08; // Spring force for return movement
+            this.friction = 0.9;
+            this.springFactor = 0.1;
+            this.hue = Math.random() * 360;
         }
         
         draw() {
+            // Expanded glowing effect
+            const gradient = ctx.createRadialGradient(
+                this.x, this.y, 0, 
+                this.x, this.y, this.size * 5 // Larger glow radius
+            );
+            gradient.addColorStop(0, `hsla(${this.hue}, 100%, 100%, 0.7)`);
+            gradient.addColorStop(1, `hsla(${this.hue}, 100%, 100%, 0)`);
+            
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 5, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            
+            // Brighter, larger core
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(124, 58, 237, 0.5)';
+            ctx.fillStyle = `hsla(${this.hue}, 100%, 100%, 1)`;
             ctx.fill();
         }
         
         update() {
-            // Calculate distance to cursor
             let dx = currentX - this.x;
             let dy = currentY - this.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
-            let force = (Math.max(100 - distance, 0) / 100) * this.density;
+            let force = (Math.max(250 - distance, 0) / 250) * this.density;
             
-            if (distance < 100) {
-                // Apply smooth force towards cursor
-                this.velocityX += (dx / distance) * force * 0.2;
-                this.velocityY += (dy / distance) * force * 0.2;
+            if (distance < 250) {
+                // More dramatic movement away from cursor
+                this.velocityX -= (dx / distance) * force * 0.6;
+                this.velocityY -= (dy / distance) * force * 0.6;
             }
             
-            // Spring force back to original position
             let homeX = this.baseX - this.x;
             let homeY = this.baseY - this.y;
             this.velocityX += homeX * this.springFactor;
             this.velocityY += homeY * this.springFactor;
             
-            // Apply friction
             this.velocityX *= this.friction;
             this.velocityY *= this.friction;
             
-            // Update position
             this.x += this.velocityX;
             this.y += this.velocityY;
         }
@@ -390,27 +401,32 @@ function initInteractiveBackground() {
     function animate() {
         ctx.clearRect(0, 0, width, height);
         
-        // Smooth cursor movement
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
         
-        // Update and draw particles
         particles.forEach(particle => {
             particle.update();
             particle.draw();
         });
         
-        // Draw connecting lines with smooth opacity
+        // Enhanced connecting lines
         particles.forEach((particle, index) => {
             for (let j = index + 1; j < particles.length; j++) {
                 let dx = particle.x - particles[j].x;
                 let dy = particle.y - particles[j].y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 150) {
+                if (distance < 250) {
+                    const gradient = ctx.createLinearGradient(
+                        particle.x, particle.y, 
+                        particles[j].x, particles[j].y
+                    );
+                    gradient.addColorStop(0, `rgba(255, 255, 255, ${0.6 * (1 - distance/250)})`);
+                    gradient.addColorStop(1, `rgba(255, 255, 255, ${0.3 * (1 - distance/250)})`);
+                    
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(124, 58, 237, ${0.15 * (1 - distance/150)})`; // Smoother line opacity
-                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = gradient;
+                    ctx.lineWidth = 2 * (1 - distance/250);
                     ctx.moveTo(particle.x, particle.y);
                     ctx.lineTo(particles[j].x, particles[j].y);
                     ctx.stroke();
@@ -525,4 +541,218 @@ document.addEventListener('DOMContentLoaded', setupLogoBlink);
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initInteractiveBackground();
+});
+
+// Advanced Single Shape Particle System
+function createSingleShapeParticles() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size to match particles container
+    const particlesContainer = document.getElementById('particles');
+    canvas.width = particlesContainer.clientWidth;
+    canvas.height = particlesContainer.clientHeight;
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    // Shape Generators with Transition Mechanism
+    function generateShapeParticles(shapeType, size) {
+        const particles = [];
+        let vertices = [];
+        
+        // Determine vertices based on shape type
+        switch(shapeType) {
+            case 'square':
+                vertices = [
+                    { x: centerX - size, y: centerY - size },  // Top-left
+                    { x: centerX + size, y: centerY - size },  // Top-right
+                    { x: centerX + size, y: centerY + size },  // Bottom-right
+                    { x: centerX - size, y: centerY + size }   // Bottom-left
+                ];
+                break;
+            case 'triangle':
+                vertices = [
+                    { x: centerX, y: centerY - size },               // Top vertex
+                    { x: centerX - size, y: centerY + size },        // Bottom-left vertex
+                    { x: centerX + size, y: centerY + size }         // Bottom-right vertex
+                ];
+                break;
+            case 'circle':
+                // Generate points around a circular path
+                for (let i = 0; i < 8; i++) {
+                    const angle = (i / 8) * Math.PI * 2;
+                    vertices.push({
+                        x: centerX + size * Math.cos(angle),
+                        y: centerY + size * Math.sin(angle)
+                    });
+                }
+                break;
+        }
+        
+        // Create key particles at vertices
+        vertices.forEach((vertex, index) => {
+            const nextVertex = vertices[(index + 1) % vertices.length];
+            const prevVertex = vertices[(index - 1 + vertices.length) % vertices.length];
+            
+            particles.push({
+                x: vertex.x,
+                y: vertex.y,
+                shapeType: shapeType,
+                isKeyParticle: true,
+                connections: [
+                    { 
+                        vertex: nextVertex, 
+                        strength: 1,
+                        type: 'edge'
+                    },
+                    { 
+                        vertex: prevVertex, 
+                        strength: 1,
+                        type: 'edge'
+                    }
+                ]
+            });
+            
+            // Add some surrounding particles for each vertex
+            for (let i = 0; i < 3; i++) {
+                particles.push({
+                    x: vertex.x + (Math.random() - 0.5) * (size / 2),
+                    y: vertex.y + (Math.random() - 0.5) * (size / 2),
+                    shapeType: shapeType,
+                    isKeyParticle: false,
+                    connections: [
+                        { 
+                            vertex: vertex, 
+                            strength: 0.7,
+                            type: 'surrounding'
+                        }
+                    ]
+                });
+            }
+        });
+        
+        return particles;
+    }
+    
+    // Shape Transition Logic
+    const shapeTypes = ['square', 'triangle', 'circle'];
+    let currentShapeIndex = 0;
+    
+    // Generate particles for the current shape
+    const particles = generateShapeParticles(
+        shapeTypes[currentShapeIndex], 
+        100  // Size of the shape
+    );
+    
+    // Attach transition method to global scope
+    window.transitionToNextShape = function() {
+        currentShapeIndex = (currentShapeIndex + 1) % shapeTypes.length;
+        
+        // Reinitialize particles with new shape
+        const newParticles = generateShapeParticles(
+            shapeTypes[currentShapeIndex], 
+            100
+        );
+        
+        // Update particles configuration
+        if (window.pJSDom && window.pJSDom[0]) {
+            window.pJSDom[0].pJS.particles.array = newParticles;
+            window.pJSDom[0].pJS.fn.particlesRefresh();
+        }
+    };
+    
+    return particles;
+}
+
+// Particles.js Configuration with Single Shape
+document.addEventListener('DOMContentLoaded', () => {
+    const singleShapeParticles = createSingleShapeParticles();
+    
+    particlesJS('particles', {
+        particles: {
+            number: {
+                value: singleShapeParticles.length,
+                density: {
+                    enable: false
+                }
+            },
+            color: {
+                value: ["#ffffff", "#00ffff", "#ff00ff", "#00ff00", "#ff4500", "#1e90ff"]
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.8,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 7,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 4,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 15,
+                    size_min: 1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 180,
+                color: "#ffffff",
+                opacity: 0.7,
+                width: 2,
+                triangles: {
+                    enable: true,
+                    color: "#ffffff",
+                    opacity: 0.1
+                }
+            },
+            move: {
+                enable: true,
+                speed: 9,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "bounce",
+                bounce: true,
+                attract: {
+                    enable: true,
+                    rotateX: 2200,
+                    rotateY: 4400
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                repulse: {
+                    distance: 220,
+                    duration: 0.2
+                },
+                push: {
+                    particles_nb: 15
+                }
+            }
+        },
+        retina_detect: true
+    });
 });
